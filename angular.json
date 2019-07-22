@@ -119,6 +119,41 @@
           }
         }
       }
+    },
+    "validate": {
+      "projectType": "library",
+      "root": "projects/validate",
+      "sourceRoot": "projects/validate/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/validate/tsconfig.lib.json",
+            "project": "projects/validate/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/validate/src/test.ts",
+            "tsConfig": "projects/validate/tsconfig.spec.json",
+            "karmaConfig": "projects/validate/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/validate/tsconfig.lib.json",
+              "projects/validate/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "lib-validate"
 }
